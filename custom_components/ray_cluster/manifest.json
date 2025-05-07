@@ -1,0 +1,12 @@
+{
+  "domain": "ray_cluster",
+  "name": "Ray Cluster Meter",
+  "version": "1.0.0",
+  "config_flow": true,
+  "requirements": ["pymodbus>=3.6.0"],
+  "dependencies": [],
+  "documentation": "https://github.com/magicbear/ray_cluster_hacs",
+  "issue_tracker": "https://github.com/magicbear/ray_cluster_hacs/issues",
+  "codeowners": ["@magicbear"],
+  "iot_class": "local_polling"
+}

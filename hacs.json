@@ -1,0 +1,6 @@
+{
+  "name": "Ray Cluster",
+  "render_readme": true,
+  "homeassistant": "2023.9.0",
+  "hide_default_branch": true
+}
