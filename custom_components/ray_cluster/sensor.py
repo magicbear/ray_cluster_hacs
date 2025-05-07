@@ -4,7 +4,7 @@ from collections import defaultdict
 from datetime import timedelta
 
 import aiohttp
-from homeassistant.const import PERCENTAGE
+from homeassistant.const import PERCENTAGE, UnitOfInformation
 from homeassistant.core import callback
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription, SensorDeviceClass, SensorStateClass
 from homeassistant.helpers.entity import DeviceInfo
@@ -57,6 +57,14 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                                  hostname=hostname,
                                  device_info=dev)
             )
+            sensors.append(RayClusterSensor(coordinator, f"GPU {gpu['index']} Memory Used",
+                                 f"gpu_memused_{gpu['index']}",
+                                 unit=UnitOfInformation.MEGABYTES,
+                                 state_class=SensorStateClass.MEASUREMENT,
+                                 icon="mdi:memory",
+                                 hostname=hostname,
+                                 device_info=dev)
+            )
 
     async_add_entities(sensors)
 
@@ -100,6 +108,12 @@ class RayClusterSensor(CoordinatorEntity, SensorEntity):
             for gpu in state.get("gpus"):
                 if gpu.get("index") == gpu_id:
                     return gpu.get("memoryUsed") / gpu.get("memoryTotal") * 100.0
+            return None
+        elif self.entity_description.key.startswith("gpu_memused_"):
+            gpu_id = int(self.entity_description.key[13:])
+            for gpu in state.get("gpus"):
+                if gpu.get("index") == gpu_id:
+                    return gpu.get("memoryUsed")
             return None
         return state.get(self.entity_description.key)
 
