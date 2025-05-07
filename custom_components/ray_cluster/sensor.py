@@ -110,7 +110,7 @@ class RayClusterSensor(CoordinatorEntity, SensorEntity):
                     return gpu.get("memoryUsed") / gpu.get("memoryTotal") * 100.0
             return None
         elif self.entity_description.key.startswith("gpu_memused_"):
-            gpu_id = int(self.entity_description.key[13:])
+            gpu_id = int(self.entity_description.key[12:])
             for gpu in state.get("gpus"):
                 if gpu.get("index") == gpu_id:
                     return gpu.get("memoryUsed")
