@@ -154,6 +154,8 @@ class RayClusterCoordinator(DataUpdateCoordinator):
 
                 data = await response.json()
                 for device in data['data']['summary']:
+                    if device.get("hostname") is None:
+                        continue
                     self.device_infos[device['hostname']] = DeviceInfo(
                         identifiers={(DOMAIN, self.config_entry.entry_id+"-"+device['hostname'])},
                         name=f"Ray Cluster Node {device['hostname']}",
