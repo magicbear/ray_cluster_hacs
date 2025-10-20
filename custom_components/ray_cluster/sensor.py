@@ -9,8 +9,6 @@ from homeassistant.core import callback
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription, SensorDeviceClass, SensorStateClass
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, CoordinatorEntity
-from pymodbus.client import AsyncModbusTcpClient
-from pymodbus.constants import Endian
 from .const import DOMAIN, CONF_HOST, CONF_PORT, CONF_SLAVE_ID, CONF_SCAN_INTERVAL
 
 _LOGGER = logging.getLogger(__name__)
