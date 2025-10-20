@@ -7,10 +7,10 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.const import CONF_HOST, CONF_PORT, CONF_SCAN_INTERVAL
+from homeassistant.const import CONF_SCAN_INTERVAL
 import aiohttp
 
-from .const import DOMAIN, DEFAULT_PORT, CONF_HOST, CONF_PORT, CONF_SLAVE_ID, DEFAULT_SCAN_INTERVAL
+from .const import DOMAIN, DEFAULT_PORT, CONF_HOST, CONF_PORT, DEFAULT_SCAN_INTERVAL
 
 STEP_USER_DATA_SCHEMA = vol.Schema({
     vol.Required(CONF_HOST): str,

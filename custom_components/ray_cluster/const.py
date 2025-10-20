@@ -7,7 +7,6 @@ DOMAIN = "ray_cluster"
 DEFAULT_PORT = 8265
 SCAN_INTERVAL = timedelta(seconds=1)  # seconds
 
-CONF_SLAVE_ID = "slave_id"
 DEFAULT_SCAN_INTERVAL = 30
 
 ERRORS_MAP = {

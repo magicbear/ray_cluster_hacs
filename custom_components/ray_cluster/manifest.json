@@ -1,7 +1,7 @@
 {
   "domain": "ray_cluster",
   "name": "Ray Cluster Meter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "config_flow": true,
   "requirements": ["pymodbus>=3.6.0"],
   "dependencies": [],
